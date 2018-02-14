@@ -17,6 +17,11 @@
         "phpunit/phpunit": "~6.0",
         "symfony/thanks": "^1.0"
     },
+
+    "require": {
+    "cornford/googlmapper": "2.*"
+    },   
+    
     "autoload": {
         "classmap": [
             "database/seeds",
