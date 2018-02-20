@@ -14,7 +14,16 @@ class UnconfirmedshowsTableSeeder extends Seeder
     public function run()
     {
      $unconfirmedshows = [
-     	[]
-     ]   
+     	['New York', 1, 2018-08-18],
+     	['Philadelphia', 2, 2018-08-20],
+     	['Chicago', 1, 2018-08-24],
+     	['St. Louis', 1, 2018-08-25],
+     	['Washington D.C', 2, 2018-08-28],
+     	['Amherst', 3, 2018-08-8-30],
+     ];
+
+     $count = count($unconfirmedshows);
+
+     foreach ($)   
     }
 }
