@@ -16,10 +16,12 @@ class CreateBandsTable extends Migration
         Schema::create('bands', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('genre');
-            $table->string('website');
-            $table->integer('likes');
-            $table->text('other');
+            $table->string('name');
+            $table->string('city');
+            $table->string('genre')->nullable();
+            $table->string('website')->nullable();
+            $table->integer('likes')->nullable();
+            $table->text('other')->nullable();
         });
     }
 

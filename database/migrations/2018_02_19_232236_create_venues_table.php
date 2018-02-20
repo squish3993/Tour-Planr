@@ -17,9 +17,10 @@ class CreateVenuesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
+            $table->string('city');
             $table->string('address');
-            $table->integer('capacity');
-            $table->string('booking');
+            $table->integer('capacity')->nullable();
+            $table->string('booking')->nullable();
         });
     }
 

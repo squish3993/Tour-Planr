@@ -16,7 +16,6 @@ class CreateConfirmedshowsTable extends Migration
         Schema::create('confirmedshows', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('venue');
             $table->date('date');
         });
     }
