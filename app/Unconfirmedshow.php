@@ -10,4 +10,9 @@ class Unconfirmedshow extends Model
     {
     	return $this->belongsToMany('App\Venue')->withTimestamps();
     }
+
+    public function bands()
+    {
+    	return $this->belongsToMany('App\Band')->withTimestamps();
+    }
 }
