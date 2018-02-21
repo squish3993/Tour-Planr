@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('maps/unconfirmedshows');
-});
+Route::get('/', 'UnconfirmedshowController@index');
+    
 
 
 
