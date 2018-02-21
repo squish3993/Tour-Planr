@@ -10,4 +10,9 @@ class Band extends Model
     {
     	return $this->belongsToMany('App\Unconfirmedshow')->withTimestamps();
     }
+
+    public function confirmedshows()
+    {
+    	return $this->belongsToMany('App\Confirmedshow')->withTimestamps();
+    }
 }
