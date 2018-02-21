@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ConfirmedshowsTableSeeder::class);
         $this->call(VenuesTableSeeder::class);
         $this->call(BandsTableSeeder::class);
+        $this->call(UnconfirmedshowVenueTableSeeder::class);
     }
 }
