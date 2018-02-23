@@ -1,15 +1,24 @@
 @extends('layouts.master')
 
 @section('sidebar')
+
 	<ol>
-		@foreach($unconfirmedshows as $unconfirmedshow)
-		<li>{{ $unconfirmedshow['city'] }}
+		@for($i = 0; $i < $count; $i++)
+		<li>{{ $unconfirmedshows[$i]['city'] }}
 			<ul>
-				<li>{{ $unconfirmedshow['date'] }}</li>
-				<li>{{ $unconfirmedshow['tier'] }}</li>
+				<li>{{ $unconfirmedshows[$i]['date'] }}</li>
+				<li>{{ $unconfirmedshows[$i]['tier'] }}</li>
+				@for($j = 0; $j < $countvenues[$i]; $j++)			
+				<li>{{ $venues[$i][$j]['name'] }}</li>
+					<ul>
+						<li>{{ $venues[$i][$j]['address'] }}</li>
+						<li>{{ $venues[$i][$j]['capacity'] }}</li>
+						<li>{{ $venues[$i][$j]['booking'] }}</li>
+					</ul>
+				@endfor
 			</ul>
 		</li>
-		@endforeach
+		@endfor
 	</ol>
 
 
