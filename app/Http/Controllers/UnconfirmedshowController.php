@@ -18,26 +18,25 @@ class UnconfirmedshowController extends Controller
         $unconfirmedshow=[];
         $venues=[];
 
+        //Fills array for shows
         for ($i = 1; $i <= $count; $i++)
         {
         	$unconfirmedshow[($i-1)] = Unconfirmedshow::find($i);
         }
-        //dump($unconfirmedshow);
-		
+       
+
+		//Fills array for venues - Collection
 		for ($i = 0; $i<$count; $i++)
 	        	{
 	        		$venues[$i] = $unconfirmedshow[$i]->venues;
 	        		
 	        		//echo $venue->name;
 	        	}		        	
-        
+        //Counts how many venues are in each unconfirmed show for loop in view file
 	    for ($i = 0; $i<$count; $i++)
 	    {
 	        	$countvenues[$i] = count($venues[$i]);
 	    }
-
-	    //dump($countvenues);
-        //dd($venues);
 
       
         
@@ -47,5 +46,10 @@ class UnconfirmedshowController extends Controller
             'count' => $count,
             'countvenues' => $countvenues                      
         ]);
+    }
+
+     public function create()
+    {
+        return view('unconfirmedshows.createuc');      
     }
 }
