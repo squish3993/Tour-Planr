@@ -26,9 +26,9 @@
                 <label for='tier' class='col-sm-2 col-form-label'>* What Tier of Importance is this Show?</label>
                 <div class='col-sm-5'>
                     <select class ='form-control' name='tier' id='tier'>
-                        <option value="1">1 (most important)</option>
-                        <option value="2">2</option>
-                        <option value="3">3 (least important)</option>
+                        <option value= 1 >1 (most important)</option>
+                        <option value= 2 >2</option>
+                        <option value= 3 >3 (least important)</option>
                     </select>
                 </div>                
             </div>

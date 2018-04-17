@@ -21,16 +21,16 @@ class UnconfirmedshowController extends Controller
         //Fills array for shows
         for ($i = 1; $i <= $count; $i++)
         {
-        	$unconfirmedshow[($i-1)] = Unconfirmedshow::find($i);
+        	//$unconfirmedshow[($i-1)] = Unconfirmedshow::find($i);
+            $unconfirmedshow[($i-1)] = $unconfirmedshows[($i-1)];
         }
-       
 
 		//Fills array for venues - Collection
 		for ($i = 0; $i<$count; $i++)
     	{
     		$venues[$i] = $unconfirmedshow[$i]->venues;
-    		
-    	}		        	
+        }	
+        	
         //Counts how many venues are in each unconfirmed show for loop in view file
 	    for ($i = 0; $i<$count; $i++)
 	    {
@@ -50,5 +50,28 @@ class UnconfirmedshowController extends Controller
      public function create()
     {
         return view('unconfirmedshows.createuc');      
+    }
+
+    public function store(Request $request)
+    {
+        
+        /*$this->validate($request, [
+            'city' => 'required',
+            'date' => 'required',
+            'tier' => 'required|integer'
+        ]); */
+
+        $show = new Unconfirmedshow();
+
+        #Following code is used to convert Dropdown date and time input menu into readable dateTime format. 
+        #dateTime doesn't need validation because the drop down menu prevents any malicious inputs
+        $date = $request->input('year').'-'.$request->input('month').'-'.$request->input('day');
+
+        $show->city = $request->input('city');
+        $show->date = $date;
+        $show->tier = $request->input('tier');
+        dump($show);
+        $show->save();
+        return redirect('/');
     }
 }
