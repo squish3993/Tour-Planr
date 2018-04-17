@@ -20,6 +20,8 @@
            </div>
         </header>
 
+        @include('modules.nav')
+
         <section id='sidebar' class=' flex-container col-3'>
         	@yield('sidebar')
         </section>

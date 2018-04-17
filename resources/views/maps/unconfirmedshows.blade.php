@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('sidebar')
-
+	<h4>Unconfirmed Shows</h4>
 	<ol>
 		@for($i = 0; $i < $count; $i++)
 		<li>{{ $unconfirmedshows[$i]['city'] }}

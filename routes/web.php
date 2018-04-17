@@ -13,7 +13,7 @@
 
 Route::get('/', 'UnconfirmedshowController@index');
 
-#Add am Unconfirmed Show
+#Add an Unconfirmed Show
 Route::get('/show/create', 'UnconfirmedshowController@create');
 Route::post('/', 'UnconfirmedshowController@store');
 

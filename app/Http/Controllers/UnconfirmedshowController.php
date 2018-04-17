@@ -27,11 +27,10 @@ class UnconfirmedshowController extends Controller
 
 		//Fills array for venues - Collection
 		for ($i = 0; $i<$count; $i++)
-	        	{
-	        		$venues[$i] = $unconfirmedshow[$i]->venues;
-	        		
-	        		//echo $venue->name;
-	        	}		        	
+    	{
+    		$venues[$i] = $unconfirmedshow[$i]->venues;
+    		
+    	}		        	
         //Counts how many venues are in each unconfirmed show for loop in view file
 	    for ($i = 0; $i<$count; $i++)
 	    {

@@ -12,3 +12,32 @@
 .bigtitle {
 	text-align:center;
 }
+
+nav {
+    border-top:1px solid #F7DBC4;
+    border-bottom:1px solid #F7DBC4;
+    padding:5px;
+    margin-top:10px;
+
+}
+
+nav ul {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+nav ul li {
+    display:inline-block;
+    padding:10px;
+}
+
+nav ul li a:link {
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+nav ul li a:hover {
+    color:#9C2E2D;; /* flatly teel */
+}
