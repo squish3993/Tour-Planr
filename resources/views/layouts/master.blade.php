@@ -26,6 +26,7 @@
         	@yield('sidebar')
         </section>
 
+
          @if(session('alert'))
             <div class='alert'>
                 {{ session('alert') }}

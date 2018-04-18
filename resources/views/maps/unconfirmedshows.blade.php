@@ -6,6 +6,7 @@
 		@for($i = 0; $i < $count; $i++)
 		<li>{{ $unconfirmedshows[$i]['city'] }} 
 			<a href='/ucshow/{{ $unconfirmedshows[$i]['id'] }}/delete'>Delete</a>
+			<a href='/ucshow/{{ $unconfirmedshows[$i]["id"] }}/edit'>Edit</a>
 			<ul>
 				<li>{{ $unconfirmedshows[$i]['date'] }}</li>
 				<li>{{ $unconfirmedshows[$i]['tier'] }}</li>

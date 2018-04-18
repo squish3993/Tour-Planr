@@ -21,7 +21,9 @@ Route::post('/', 'UnconfirmedshowController@store');
 Route::get('/ucshow/{id}/delete', 'UnconfirmedshowController@delete');
 Route::delete('/ucshow/{id}', 'UnconfirmedshowController@destroy');
 
-
+#Edit an unconfirmed show
+Route::get('/ucshow/{id}/edit', 'UnconfirmedshowController@edit');
+Route::put('/ucshow/{id}', 'UnconfirmedshowController@update');
 
 
 

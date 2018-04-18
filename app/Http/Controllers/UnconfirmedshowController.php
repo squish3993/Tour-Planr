@@ -101,4 +101,30 @@ class UnconfirmedshowController extends Controller
 
         return redirect('/')->with('alert', 'Your show in '.$show->city.' was removed.');
     }
+
+    public function edit($id)
+    {
+        $show = Unconfirmedshow::find($id);
+
+        if (!$show) {
+            return redirect('/')->with('alert', 'Show not found');
+        }
+
+        return view('unconfirmedshows.edituc')->with([
+            'show' => $show
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $show = Unconfirmedshow::find($id);
+        $date = $request->input('year').'-'.$request->input('month').'-'.$request->input('day');
+
+        $show->city = $request->input('city');
+        $show->date = $date;
+        $show->tier = $request->input('tier');
+        $show->save();
+
+        return redirect('/')->with('alert', 'Your changes were saved!');
+    }
 }
