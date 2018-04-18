@@ -4,7 +4,8 @@
 	<h4>Unconfirmed Shows</h4>
 	<ol>
 		@for($i = 0; $i < $count; $i++)
-		<li>{{ $unconfirmedshows[$i]['city'] }}
+		<li>{{ $unconfirmedshows[$i]['city'] }} 
+			<a href='/ucshow/{{ $unconfirmedshows[$i]['id'] }}/delete'>Delete</a>
 			<ul>
 				<li>{{ $unconfirmedshows[$i]['date'] }}</li>
 				<li>{{ $unconfirmedshows[$i]['tier'] }}</li>

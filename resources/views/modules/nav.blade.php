@@ -1,7 +1,7 @@
 @php
     $nav = [
         '' => 'Home',
-        'show/create' => 'Create',
+        'ucshow/create' => 'Create',
     ];
 @endphp
 

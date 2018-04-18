@@ -37,7 +37,6 @@ class UnconfirmedshowController extends Controller
 	        	$countvenues[$i] = count($venues[$i]);
 	    }
 
-      
         
         return view('maps.unconfirmedshows')->with([
             'unconfirmedshows' => $unconfirmedshows,
@@ -70,8 +69,36 @@ class UnconfirmedshowController extends Controller
         $show->city = $request->input('city');
         $show->date = $date;
         $show->tier = $request->input('tier');
-        dump($show);
         $show->save();
         return redirect('/');
+    }
+
+    public function delete($id)
+    {
+        $show = Unconfirmedshow::find($id);
+        if (!$show) 
+        {
+            return redirect('/')->with('alert', 'Show not found');
+        }
+
+        return view('unconfirmedshows.deleteuc')->with([
+            'show' => $show
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $show = Unconfirmedshow::find($id);
+
+        if (!$show) 
+        {
+            return redirect('/')->with('alert', 'Show not found');
+        }
+
+        $show->venues()->detach();
+        $show->bands()->detach();
+        $show->delete();
+
+        return redirect('/')->with('alert', 'Your show in '.$show->city.' was removed.');
     }
 }

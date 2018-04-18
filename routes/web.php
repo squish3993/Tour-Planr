@@ -14,8 +14,12 @@
 Route::get('/', 'UnconfirmedshowController@index');
 
 #Add an Unconfirmed Show
-Route::get('/show/create', 'UnconfirmedshowController@create');
+Route::get('/ucshow/create', 'UnconfirmedshowController@create');
 Route::post('/', 'UnconfirmedshowController@store');
+
+# Delete an Unconfirmedshow
+Route::get('/ucshow/{id}/delete', 'UnconfirmedshowController@delete');
+Route::delete('/ucshow/{id}', 'UnconfirmedshowController@destroy');
 
 
 
