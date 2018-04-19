@@ -7,6 +7,7 @@
 		<li>{{ $unconfirmedshows[$i]['city'] }} 
 			<a href='/ucshow/{{ $unconfirmedshows[$i]['id'] }}/delete'>Delete</a>
 			<a href='/ucshow/{{ $unconfirmedshows[$i]["id"] }}/edit'>Edit</a>
+			<a href='/ucshow/{{ $unconfirmedshows[$i]["id"] }}/view'>View</a>
 			<ul>
 				<li>{{ $unconfirmedshows[$i]['date'] }}</li>
 				<li>{{ $unconfirmedshows[$i]['tier'] }}</li>

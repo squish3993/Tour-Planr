@@ -25,6 +25,9 @@ Route::delete('/ucshow/{id}', 'UnconfirmedshowController@destroy');
 Route::get('/ucshow/{id}/edit', 'UnconfirmedshowController@edit');
 Route::put('/ucshow/{id}', 'UnconfirmedshowController@update');
 
+#vView a Show
+Route::get('/ucshow/{id}/view', 'UnconfirmedshowController@view');
+
 
 
 

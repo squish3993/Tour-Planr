@@ -127,4 +127,17 @@ class UnconfirmedshowController extends Controller
 
         return redirect('/')->with('alert', 'Your changes were saved!');
     }
+
+    public function view($id)
+    {
+        $show = Unconfirmedshow::find($id);
+
+        if (!$show) {
+            return redirect('/')->with('alert', 'Show not found');
+        }
+
+        return view('unconfirmedshows.viewuc')->with([
+            'show' => $show
+        ]);
+    }
 }
