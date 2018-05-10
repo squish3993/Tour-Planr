@@ -28,6 +28,9 @@ Route::put('/ucshow/{id}', 'UnconfirmedshowController@update');
 #vView a Show
 Route::get('/ucshow/{id}/view', 'UnconfirmedshowController@view');
 
+#View all Venues
+Route::get('/venues', 'VenueController@show');
+
 
 
 
