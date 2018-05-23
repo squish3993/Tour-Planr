@@ -101,4 +101,17 @@ class VenueController extends Controller
 
         return redirect('/venues')->with('alert', 'Your changes were saved!');
     }
+
+    public function view($id)
+    {
+        $venue = Venue::find($id);
+
+        if (!$venue) {
+            return redirect('/venues')->with('alert', 'Venue not found');
+        }
+
+        return view('venues.viewvenue')->with([
+            'venue' => $venue
+        ]);
+    }
 }

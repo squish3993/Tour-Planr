@@ -43,6 +43,9 @@ Route::delete('venues/{id}', 'VenueController@destroy');
 Route::get('/venues/{id}/edit', 'VenueController@edit');
 Route::put('venues/{id}', 'VenueController@update');
 
+#View a Venue
+Route::get('venues/{id}/view', 'VenueController@view');
+
 
 
 
