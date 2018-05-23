@@ -31,6 +31,9 @@ Route::get('/ucshow/{id}/view', 'UnconfirmedshowController@view');
 #View all Venues
 Route::get('/venues', 'VenueController@show');
 
+#Create a Venue
+Route::get('/venues/create', 'VenueController@create');
+Route::post('/venues', 'VenueController@store');
 
 
 

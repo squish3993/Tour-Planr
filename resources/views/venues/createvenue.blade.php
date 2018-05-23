@@ -8,34 +8,49 @@
 
 	<div class='container text-center'>
     
-        <h1>Add an Unconfirmed Show</h1>
+        <h1>Add a Venue</h1>
         <div class='details'>* Required fields</div>
 
-        <form method='POST' action='/'>
+        <form method='POST' action='/venues'>
 
             {{ csrf_field() }}
 
             <div class='form-group row'>
-                <label for='city' class='col-sm-2 col-form-label'>City Where You Want to Play *</label>
+                <label for='name' class='col-sm-2 col-form-label'>Name of the Venue *</label>
+                <div class='col-sm-5'>
+                    <input type='text' class ='form-control' name='name' id='name'>
+                </div>
+            </div>
+
+            <div class='form-group row'>
+                <label for='city' class='col-sm-2 col-form-label'>City where the Venue is Located? *</label>
                 <div class='col-sm-5'>
                     <input type='text' class ='form-control' name='city' id='city'>
                 </div>
             </div>
 
             <div class='form-group row'>
-                <label for='tier' class='col-sm-2 col-form-label'>* What Tier of Importance is this Show?</label>
+                <label for='address' class='col-sm-2 col-form-label'>Address of the Venue *</label>
                 <div class='col-sm-5'>
-                    <select class ='form-control' name='tier' id='tier'>
-                        <option value= 1 >1 (most important)</option>
-                        <option value= 2 >2</option>
-                        <option value= 3 >3 (least important)</option>
-                    </select>
-                </div>                
+                    <input type='text' class ='form-control' name='address' id='address'>
+                </div>
             </div>
 
-            @include('modules.date')
+            <div class='form-group row'>
+                <label for='capacity' class='col-sm-2 col-form-label'>Capacity of the Venue</label>
+                <div class='col-sm-5'>
+                    <input type='text' class ='form-control' name='capacity' id='capacity'>
+                </div>
+            </div>
 
-            <input type='submit' value='Add Show' class='btn btn-primary btn-small'>
+            <div class='form-group row'>
+                <label for='booking' class='col-sm-2 col-form-label'>Any Contact info for ther Venue</label>
+                <div class='col-sm-5'>
+                    <input type='text' class ='form-control' name='booking' id='booking'>
+                </div>
+            </div>
+
+            <input type='submit' value='Add Venue' class='btn btn-primary btn-small'>
         </form>
     </div>
 
