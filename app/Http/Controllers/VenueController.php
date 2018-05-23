@@ -45,4 +45,60 @@ class VenueController extends Controller
         $venue->save();
         return redirect('/venues');
     }
+
+    public function delete($id)
+    {
+        $venue = Venue::find($id);
+        if (!$venue) 
+        {
+            return redirect('/venues')->with('alert', 'Venue not found');
+        }
+
+        return view('venues.deletevenue')->with([
+            'venue' => $venue
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $venue = Venue::find($id);
+
+        if (!$venue) 
+        {
+            return redirect('/venues')->with('alert', 'Venue not found');
+        }
+
+        $venue->unconfirmedshows()->detach();
+        $venue->confirmedshows()->detach();
+        $venue->delete();
+
+        return redirect('/venues')->with('alert', 'The venue '.$venue->name.' was removed.');
+    }
+
+    public function edit($id)
+    {
+        $venue = Venue::find($id);
+
+        if (!$venue) {
+            return redirect('/')->with('alert', 'Venue not found');
+        }
+
+        return view('venues.editvenue')->with([
+            'venue' => $venue
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $venue = Venue::find($id);
+   
+        $venue->name = $request->input('name');
+        $venue->city = $request->input('city');
+    	$venue->address = $request->input('address');
+    	$venue->capacity = $request->input('capacity');
+    	$venue->booking = $request->input('booking');
+        $venue->save();
+
+        return redirect('/venues')->with('alert', 'Your changes were saved!');
+    }
 }

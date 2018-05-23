@@ -35,6 +35,14 @@ Route::get('/venues', 'VenueController@show');
 Route::get('/venues/create', 'VenueController@create');
 Route::post('/venues', 'VenueController@store');
 
+#Delete a Venue
+Route::get('venues/{id}/delete', 'VenueController@delete');
+Route::delete('venues/{id}', 'VenueController@destroy');
+
+#Edit a Venue
+Route::get('/venues/{id}/edit', 'VenueController@edit');
+Route::put('venues/{id}', 'VenueController@update');
+
 
 
 

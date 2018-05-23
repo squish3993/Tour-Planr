@@ -2,7 +2,8 @@
     $nav = [
         '' => 'Home',
         'ucshow/create' => 'Create',
-        'venues' => 'View Venues'
+        'venues' => 'View Venues',
+        'venues/create' => 'Create a Venue'
     ];
 @endphp
 
