@@ -131,13 +131,35 @@ class UnconfirmedshowController extends Controller
     public function view($id)
     {
         $show = Unconfirmedshow::find($id);
+        $venues = Venue::orderBy('city')->get();
 
         if (!$show) {
             return redirect('/')->with('alert', 'Show not found');
         }
 
         return view('unconfirmedshows.viewuc')->with([
-            'show' => $show
+            'show' => $show,
+            'venues' => $venues
         ]);
+    }
+
+     public function attach(Request $request, $id)
+    {
+        $show = Unconfirmedshow::with('venues')->find($id);
+        $venue = $request->input('venue'); 
+        
+        $show->venues()->attach($venue);
+
+        return redirect('/ucshow/'.$show->id.'/view')->with('alert', "The Venue was Added");      
+    }
+
+    public function detach($id, $id2)
+    {
+        $show = Unconfirmedshow::find($id);
+        $venue = Venue::find($id2);
+
+        $show->venues()->detach($venue->id);
+
+        return redirect('/ucshow/'.$show->id.'/view')->with('alert', "The Venue was removed");
     }
 }

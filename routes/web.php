@@ -28,6 +28,13 @@ Route::put('/ucshow/{id}', 'UnconfirmedshowController@update');
 #vView a Show
 Route::get('/ucshow/{id}/view', 'UnconfirmedshowController@view');
 
+#Add a venue to an Unconfirmed Show
+Route::put('/ucshow/{id}/add', 'UnconfirmedshowController@attach');
+
+#Remove a venue from an Unconfirmed Show
+
+Route::get('ucshow/{id}/{id2}/remove', 'UnconfirmedshowController@detach');
+
 #View all Venues
 Route::get('/venues', 'VenueController@show');
 
@@ -45,8 +52,6 @@ Route::put('venues/{id}', 'VenueController@update');
 
 #View a Venue
 Route::get('venues/{id}/view', 'VenueController@view');
-
-
 
 
 
