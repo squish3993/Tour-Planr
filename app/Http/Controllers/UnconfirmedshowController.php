@@ -18,6 +18,7 @@ class UnconfirmedshowController extends Controller
         $unconfirmedshow=[];
         $venues=[];
 
+
         //Fills array for shows
         for ($i = 1; $i <= $count; $i++)
         {
@@ -37,12 +38,22 @@ class UnconfirmedshowController extends Controller
 	        	$countvenues[$i] = count($venues[$i]);
 	    }
 
-        
+        $response = \GoogleMaps::load('geocoding')
+        ->setParam (['address' =>$unconfirmedshow[0]['city']])
+        ->get();
+
+        $marker1 = json_decode($response, true);
+        #dd($marker1);
+        $marker1lat = $marker1['results'][0]['geometry']['location']['lat'];
+        $marker1lng = $marker1['results'][0]['geometry']['location']['lng'];
+
         return view('maps.unconfirmedshows')->with([
             'unconfirmedshows' => $unconfirmedshows,
             'venues' => $venues,
             'count' => $count,
-            'countvenues' => $countvenues                      
+            'countvenues' => $countvenues,
+            'marker1lat'=> $marker1lat,
+            'marker1lng'=> $marker1lng                    
         ]);
     }
 
