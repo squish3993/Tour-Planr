@@ -9,7 +9,7 @@
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
        <link href="/css/app.css" type='text/css' rel='stylesheet'>
-
+       @stack('head')
 	</head>
 
 
@@ -22,7 +22,7 @@
 
         @include('modules.nav')
 
-        <section id='sidebar' class=' flex-container col-3'>
+        <section id='sidebar' class=' flex-container col-sm-4'>
         	@yield('sidebar')
         </section>
 
@@ -33,6 +33,9 @@
             </div>
         @endif
 
+        <section id='map' class='flex-container col-sm-8'>
+            @yield('map')
+        </section>
 
 
 	</body>
