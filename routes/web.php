@@ -30,7 +30,7 @@ Route::get('/ucshow/{id}/view', 'UnconfirmedshowController@view');
 
 #Add a venue to an Unconfirmed Show
 Route::put('/ucshow/{id}/add', 'UnconfirmedshowController@attach');
-
+Route::put('venue/{id}/add', 'VenueController@attach');
 #Remove a venue from an Unconfirmed Show
 
 Route::get('ucshow/{id}/{id2}/remove', 'UnconfirmedshowController@detach');

@@ -105,13 +105,25 @@ class VenueController extends Controller
     public function view($id)
     {
         $venue = Venue::find($id);
+        $unconfirmedshows = Unconfirmedshow::orderBy('date')->get();
 
         if (!$venue) {
             return redirect('/venues')->with('alert', 'Venue not found');
         }
 
         return view('venues.viewvenue')->with([
-            'venue' => $venue
+            'venue' => $venue,
+            'unconfirmedshows' => $unconfirmedshows
         ]);
+    }
+
+    public function attach(Request $request, $id)
+    {
+        $venue = Venue::find($id);
+        $ucshowid = $request->input('ucshow'); 
+        $ucshow=Unconfirmedshow::find($ucshowid);
+        $ucshow->venues()->attach($venue);
+
+        return redirect('/ucshow/'.$ucshow->id.'/view')->with('alert', "The Venue was Added");      
     }
 }
