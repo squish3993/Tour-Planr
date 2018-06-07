@@ -41,15 +41,20 @@
 		function initMap() {
 		  // The location of Uluru
 
-		  var lat = unconfirmedshowsjs[0]['lat']
-		  var lng = unconfirmedshowsjs[0]['lng']
+		  var i
+		  var center = {lat : 38.63, lng: -90.20}
+		  var map = new google.maps.Map(   
+		    document.getElementById('map'), {zoom: 5, center: center});
+		  
+		  for (i = 0; i < unconfirmedshowsjs.length; i++)
+		  {
+		  	var lat = unconfirmedshowsjs[i]['lat']
+		  	var lng = unconfirmedshowsjs[i]['lng']
 
-		  var nyc = {lat: lat, lng: lng}
-		  // The map, centered at Uluru
-		  var map = new google.maps.Map(
-		      document.getElementById('map'), {zoom: 6, center: nyc});
-		  // The marker, positioned at Uluru
-		  var marker = new google.maps.Marker({position: nyc, map: map});
+		  	var position = {lat: lat, lng: lng}
+		  	var marker = new google.maps.Marker({position: position, map: map});
+		  }
+		  
 		}
 	</script>
 		    <!--Load the API from the specified URL
