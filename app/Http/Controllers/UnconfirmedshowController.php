@@ -75,6 +75,17 @@ class UnconfirmedshowController extends Controller
         $show->city = $request->input('city');
         $show->date = $date;
         $show->tier = $request->input('tier');
+
+        #get lat and lng
+        $response = \GoogleMaps::load('geocoding')->setParam(['address' =>$request->input('city')])->get();
+        $marker1 = json_decode($response, true);
+
+        $lat = $marker1['results'][0]['geometry']['location']['lat'];
+        $lng = $marker1['results'][0]['geometry']['location']['lng'];
+
+        $show->lat = $lat;
+        $show->lng = $lng;
+
         $show->save();
         return redirect('/');
     }
@@ -129,6 +140,17 @@ class UnconfirmedshowController extends Controller
         $show->city = $request->input('city');
         $show->date = $date;
         $show->tier = $request->input('tier');
+
+        #get lat and lng
+        $response = \GoogleMaps::load('geocoding')->setParam(['address' =>$request->input('city')])->get();
+        $marker1 = json_decode($response, true);
+        
+        $lat = $marker1['results'][0]['geometry']['location']['lat'];
+        $lng = $marker1['results'][0]['geometry']['location']['lng'];
+
+        $show->lat = $lat;
+        $show->lng = $lng;
+        
         $show->save();
 
         return redirect('/')->with('alert', 'Your changes were saved!');
