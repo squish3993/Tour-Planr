@@ -40,7 +40,11 @@
 // Initialize and add the map
 		function initMap() {
 		  // The location of Uluru
-		  var nyc = {lat: 40.7127753, lng: -74.0059728}
+
+		  var lat = unconfirmedshowsjs[0]['lat']
+		  var lng = unconfirmedshowsjs[0]['lng']
+
+		  var nyc = {lat: lat, lng: lng}
 		  // The map, centered at Uluru
 		  var map = new google.maps.Map(
 		      document.getElementById('map'), {zoom: 6, center: nyc});
@@ -57,3 +61,5 @@
 		    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHOLzb1ePN--t0jhgAoTa4-uj-H8b_8qA&callback=initMap">
 		   </script>
 @endsection
+
+@include ('layouts/footer')

@@ -7,7 +7,8 @@ use App\Unconfirmedshow;
 use App\Confirmedshow;
 use App\Venue;
 use App\Band;
-use Path\To\DOMDocument;
+use JavaScript; 
+
 
 class UnconfirmedshowController extends Controller
 {
@@ -38,6 +39,10 @@ class UnconfirmedshowController extends Controller
 	        	$countvenues[$i] = count($venues[$i]);
 	    }
 
+        Javascript::put(
+            [
+                'unconfirmedshowsjs' => $unconfirmedshows
+            ]);
 
         return view('maps.unconfirmedshows')->with([
             'unconfirmedshows' => $unconfirmedshows,
