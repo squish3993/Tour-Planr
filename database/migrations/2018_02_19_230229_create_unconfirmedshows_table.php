@@ -19,6 +19,8 @@ class CreateUnconfirmedshowsTable extends Migration
             $table->string('city');
             $table->integer('tier');
             $table->date('date');
+            $table->float('lat');
+            $table->float('lng');
         });
     }
 
