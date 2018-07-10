@@ -29,8 +29,8 @@ class UnconfirmedshowController extends Controller
 
 		//Fills array for venues - Collection
 		for ($i = 0; $i<$count; $i++)
-    	{
-    		$venues[$i] = $unconfirmedshow[$i]->venues;
+    	{ 
+            $venues[$i] = $unconfirmedshow[$i]->venues; 
         }	
         	
         //Counts how many venues are in each unconfirmed show for loop in view file
@@ -39,6 +39,7 @@ class UnconfirmedshowController extends Controller
 	        	$countvenues[$i] = count($venues[$i]);
 	    }
 
+        #Package for passing lat and lng variables to Javascript files
         Javascript::put(
             [
                 'unconfirmedshowsjs' => $unconfirmedshows
@@ -150,7 +151,7 @@ class UnconfirmedshowController extends Controller
 
         $show->lat = $lat;
         $show->lng = $lng;
-        
+
         $show->save();
 
         return redirect('/')->with('alert', 'Your changes were saved!');
