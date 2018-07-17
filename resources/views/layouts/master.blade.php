@@ -9,6 +9,7 @@
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
        <link href="/css/app.css" type='text/css' rel='stylesheet'>
+       <link href="/css/dragula.css" type='text/css' rel='stylesheet'>
        @stack('head')
 	</head>
 
@@ -22,10 +23,13 @@
 
         @include('modules.nav')
 
-        <section id='sidebar' class=' flex-container col-sm-4'>
+        <section id='sidebar' class=' flex-container col-sm-3'>
         	@yield('sidebar')
         </section>
 
+        <section id='sidebar2' class=' flex-container col-sm-3'>
+          @yield('sidebar2')
+        </section>
 
          @if(session('alert'))
             <div class='alert'>
@@ -33,13 +37,15 @@
             </div>
         @endif
 
-        <section id='map' class='flex-container col-sm-8'>
+        <section id='map' class='flex-container col-sm-6'>
             @yield('map')
         </section>
 
+        <section id='scripts'>
+          @yield('scripts')
+        </section>
         
         <script type="text/javascript" src="js/app.js"></script>
-        <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/$VERSION/dragula.min.js'></script> -->
 	</body>
   
 </html>

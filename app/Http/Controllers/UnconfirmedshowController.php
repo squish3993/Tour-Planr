@@ -191,4 +191,9 @@ class UnconfirmedshowController extends Controller
 
         return redirect('/ucshow/'.$show->id.'/view')->with('alert', "The Venue was removed");
     }
+
+    public function drag()
+    {
+        return view('maps.dragtext');
+    }
 }

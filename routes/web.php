@@ -54,7 +54,7 @@ Route::put('venues/{id}', 'VenueController@update');
 Route::get('venues/{id}/view', 'VenueController@view');
 
 
-
+Route::get('/dragtest', 'UnconfirmedshowController@drag');
 
 
 

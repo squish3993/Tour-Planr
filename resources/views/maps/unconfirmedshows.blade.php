@@ -10,29 +10,35 @@
 </style>
 @endpush
 @section('sidebar')
-	<h4>Unconfirmed Shows</h4>
-	<ol>
-		@for($i = 0; $i < $count; $i++)
-		<li>{{ $unconfirmedshows[$i]['city'] }} 
-			<a href='/ucshow/{{ $unconfirmedshows[$i]['id'] }}/delete'>Delete</a>
-			<a href='/ucshow/{{ $unconfirmedshows[$i]["id"] }}/edit'>Edit</a>
-			<a href='/ucshow/{{ $unconfirmedshows[$i]["id"] }}/view'>View</a>
-			<ul>
-				<li>{{ $unconfirmedshows[$i]['date'] }}</li>
-				<li>{{ $unconfirmedshows[$i]['tier'] }}</li>
-				@for($j = 0; $j < $countvenues[$i]; $j++)			
-				<li>{{ $venues[$i][$j]['name'] }}</li>
-					<ul>
-						<li>{{ $venues[$i][$j]['address'] }}</li>
-						<li>{{ $venues[$i][$j]['capacity'] }}</li>
-						<li>{{ $venues[$i][$j]['booking'] }}</li>
-					</ul>
-				@endfor
-			</ul>
-		</li>
-		@endfor
-	</ol>
+	<div>
+		<h4>Unconfirmed Shows</h4>
+		<ol id="left" class="list-group">
+			@for($i = 0; $i < $count; $i++)
+			<li id="show{{ $i }}" class="list-group-item">{{ $unconfirmedshows[$i]['city'] }} 
+				<a href='/ucshow/{{ $unconfirmedshows[$i]['id'] }}/delete'>Delete</a>
+				<a href='/ucshow/{{ $unconfirmedshows[$i]["id"] }}/edit'>Edit</a>
+				<a href='/ucshow/{{ $unconfirmedshows[$i]["id"] }}/view'>View</a>
+				<ul>
+					<li>{{ $unconfirmedshows[$i]['date'] }}</li>
+					<li>{{ $unconfirmedshows[$i]['tier'] }}</li>
+					@for($j = 0; $j < $countvenues[$i]; $j++)			
+					<li>{{ $venues[$i][$j]['name'] }}</li>
+						<ul>
+							<li>{{ $venues[$i][$j]['address'] }}</li>
+							<li>{{ $venues[$i][$j]['capacity'] }}</li>
+							<li>{{ $venues[$i][$j]['booking'] }}</li>
+						</ul>
+					@endfor
+				</ul>
+			</li>
+			@endfor
+		</ol>
+	</div>
 @endsection
+
+@section ('sidebar2')
+	<div id="right">
+	</div>
 
 @section('map')
 <div id="map"></div>
@@ -65,6 +71,24 @@
 		    <script async defer
 		    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHOLzb1ePN--t0jhgAoTa4-uj-H8b_8qA&callback=initMap">
 		   </script>
+@endsection
+@section('scripts')
+<!-- CDNJS :: Vue (https://cdnjs.com/) -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script>
+
+	<!-- CDNJS :: Sortable (https://cdnjs.com/) -->
+	<script src="//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
+
+	<!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
+	<script>
+
+		// List with handle
+		Sortable.create(left, {
+		  animation: 150
+		});
+
+	</script>
 @endsection
 
 @include ('layouts/footer')

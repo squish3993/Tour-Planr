@@ -3,7 +3,8 @@
         '' => 'Home',
         'ucshow/create' => 'Create',
         'venues' => 'View Venues',
-        'venues/create' => 'Create a Venue'
+        'venues/create' => 'Create a Venue',
+        'dragtest' => 'Drag Test'
     ];
 @endphp
 
