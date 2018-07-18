@@ -7,6 +7,9 @@
         height: 700px;  /* The height is 400 pixels */
         width: 100%;  /* The width is the width of the web page */
        }
+       .extrainfo {
+       	display: none;
+       }
 </style>
 @endpush
 @section('sidebar')
@@ -18,7 +21,8 @@
 				<a href='/ucshow/{{ $unconfirmedshows[$i]['id'] }}/delete'>Delete</a>
 				<a href='/ucshow/{{ $unconfirmedshows[$i]["id"] }}/edit'>Edit</a>
 				<a href='/ucshow/{{ $unconfirmedshows[$i]["id"] }}/view'>View</a>
-				<ul>
+				<button id= "expandable{{ $i }}">Expand!</button>
+				<ul id = "extrainfo{{ $i }}" class = "extrainfo">
 					<li>{{ $unconfirmedshows[$i]['date'] }}</li>
 					<li>{{ $unconfirmedshows[$i]['tier'] }}</li>
 					@for($j = 0; $j < $countvenues[$i]; $j++)			
@@ -82,7 +86,20 @@
 	<!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
 	<script>
+		for (let i = 0; i<unconfirmedshowsjs.length; i++){
+			let y = i.toString();
+			document.getElementById("expandable"+y).onclick = function(){
+				var extrainfo = document.getElementById("extrainfo"+y);
+				if (extrainfo.style.display == "block"){
+					extrainfo.style.display = "none";
+				}
+				else {
+					extrainfo.style.display = "block";
+				}
+			}
+		}
 
+		
 		// List with handle
 		Sortable.create(left, {
 		  animation: 150
