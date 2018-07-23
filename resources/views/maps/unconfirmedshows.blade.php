@@ -40,9 +40,14 @@
 	</div>
 @endsection
 
-@section ('sidebar2')
-	<div id="right">
+@section('sidebar2')
+	<div>
+		<h4>Possible Route</h4>
+		<ol id="right" class="list-group">
+			<li class="list-group-item"></li>
+		</ol>
 	</div>
+@endsection
 
 @section('map')
 <div id="map"></div>
@@ -99,11 +104,24 @@
 			}
 		}
 
-		
+		Sortable.create(right, {
+			group: {
+				name: 'right',
+				put: ['left']
+			},	
+			animation: 150
+		});
+
 		// List with handle
 		Sortable.create(left, {
-		  animation: 150
+			group: {
+				name: 'left',
+				put: ['right']
+			},
+			animation: 150	
 		});
+
+		
 
 	</script>
 @endsection
